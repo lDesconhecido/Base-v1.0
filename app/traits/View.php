@@ -10,17 +10,25 @@ use core\Twig;
         private function twig() {
 
             $twig = new Twig;
-            $twig->loadTwig();
+
+            $loadTwig = $twig->loadTwig();
+
+            $twig->loadExtensions();
+
+            $twig->loadFunctions();
+
+            return $loadTwig;
 
         }
 
         # Carrega o tiwig isntanciando ele e carrega ele Chamando view e envia os dados.
         public function view($data, $view) {
 
-            $template = $this->twig()->load(str_replace('.' , '/', $view.'.html'));
-
+            $template = $this->twig()->load(str_replace('.' , '/', $view).'.html');
             return $template->display($data);
 
         }
+
+        
 
     }
