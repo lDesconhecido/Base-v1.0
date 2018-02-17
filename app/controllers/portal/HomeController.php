@@ -8,8 +8,8 @@ namespace app\controllers\portal;
             dd('HOME - INDEX');
         }
 
-        public function show() {
-            dd('HOME - SHOW');
+        public function show($request) {
+            dd($request->next);
         }
 
     }

@@ -3,6 +3,7 @@
 use core\Method;
 use app\classes\Uri;
 use core\Controller;
+use core\Parameters;
 
     # Chama BootStrap para começar.
     require "../bootstrap.php";
@@ -17,7 +18,10 @@ use core\Controller;
         $method = new Method;
         $method = $method->load($controller);
 
-        $controller->$method();
+        $parameters = new Parameters;
+        $parameters = $parameters->load();
+
+        $controller->$method($parameters);
 
         dd($controller);
 
