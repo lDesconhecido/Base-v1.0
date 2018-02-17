@@ -57,8 +57,6 @@ use app\exceptions\ControllerNotExistException;
 
             $controller = $this->getControllerNotHome();
 
-            dd($controller);
-
             if (!$this->ControllerExist($controller)) {
 
                 throw new ControllerNotExistException("Este Controller não existe");
@@ -88,7 +86,9 @@ use app\exceptions\ControllerNotExistException;
         # Verefica se é a pagina inicial o HOME.
         private function isHome() {
 
-            return ($this->uri == '/');
+            $uri = rtrim($this->uri, '/');
+
+            return ($uri == '' || $uri == '/home');
 
         }
 

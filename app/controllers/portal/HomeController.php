@@ -5,7 +5,11 @@ namespace app\controllers\portal;
     class HomeController {
 
         public function index() {
-            echo 'oooooi';
+            dd('HOME - INDEX');
+        }
+
+        public function show() {
+            dd('HOME - SHOW');
         }
 
     }

@@ -1,5 +1,6 @@
 <?php 
 
+use core\Method;
 use app\classes\Uri;
 use core\Controller;
 
@@ -8,12 +9,16 @@ use core\Controller;
 
     /* Como será ? */
 
-    //dd(Uri::uri());
-
     try {
 
         $controller = new Controller;
         $controller = $controller->load();
+
+        $method = new Method;
+        $method = $method->load($controller);
+
+        $controller->$method();
+
         dd($controller);
 
     } catch(\Exception $e) {
@@ -21,9 +26,6 @@ use core\Controller;
         dd($e->getMessage());
 
     }
-    
-    // $method = new Method;
-    // $method = $method->getMethod;
     
     // $parameters = new Parameters;
     // $parameters = $parameters->getParameters;
