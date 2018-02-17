@@ -8,6 +8,8 @@ use core\Controller;
 
     /* Como será ? */
 
+    //dd(Uri::uri());
+
     try {
 
         $controller = new Controller;

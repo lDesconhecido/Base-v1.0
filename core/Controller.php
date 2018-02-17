@@ -52,10 +52,37 @@ use app\exceptions\ControllerNotExistException;
 
         }
 
+        # Pega o controller Não-Home vê se o mesmo existe e o instancia.
         private function ControllerNotHome() {
 
-            
+            $controller = $this->getControllerNotHome();
 
+            dd($controller);
+
+            if (!$this->ControllerExist($controller)) {
+
+                throw new ControllerNotExistException("Este Controller não existe");
+
+            }
+
+            return $this->InstantiateController($controller);
+
+        }
+
+        # Pega o controller Não-Home. 
+        private function getControllerNotHome() {
+
+            $uri = rtrim($this->uri, '/');
+
+            if (substr_count($uri, '/') > 1) {
+
+                list($controller) = array_values(array_filter(explode('/', $uri)));
+
+                return ucfirst($controller).'Controller';
+
+            }
+            
+            return ucfirst(ltrim($uri, '/')).'Controller';
         }
 
         # Verefica se é a pagina inicial o HOME.
