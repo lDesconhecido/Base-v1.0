@@ -1,9 +1,20 @@
 {
+    "name": "Base MVC v1.0",
+    "description": "Base MVC para projetos aprendido no curso MVC do 0, do professor Alexandre Cardoso...",
+    "authors": [
+        {
+            "name": "Mauricio Roberto",
+            "email": "Mauricio.Roberto.Barboza@gmail.com",
+            "homepage": "http://www.SemSite.com",
+            "role": "Programador - Aprendiz"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "app\\":"app",
             "core\\":"core"
-        }
+        },
+        "files": ["app/functions/helpers.php"]
     },
     "require": {
         "twig/twig":"^2.4.4",
