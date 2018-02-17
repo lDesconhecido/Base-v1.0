@@ -2,14 +2,18 @@
 
 namespace app\controllers\portal;
 
-    class HomeController {
+use app\controllers\BaseController;
+
+    class HomeController extends BaseController{
 
         public function index() {
             dd('HOME - INDEX');
         }
 
         public function show($request) {
-            dd($request->next);
+            $this->view([
+                'title' => 'Home'
+            ], 'portal.home');
         }
 
     }

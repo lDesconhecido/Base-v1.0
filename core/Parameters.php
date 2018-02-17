@@ -47,7 +47,7 @@ use app\classes\Uri;
             $uri = rtrim($this->uri, '/');
 
             $parameter = array_values(array_filter(explode('/', $uri)));
-
+            
             return $parameter[$actual + 1] ?? $parameter[$actual];
 
         }
