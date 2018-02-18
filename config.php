@@ -1,7 +1,7 @@
 <?php 
 
     return [
-        "database" => [
+        "DataBase" => [
             'dbName' => 'mvc',
             'dbUser' => 'root',
             'dbPass' => '',

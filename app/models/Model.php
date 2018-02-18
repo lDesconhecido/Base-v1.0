@@ -13,10 +13,20 @@ use app\models\Connection;
 
             $this->con = Bind::get('con');
            
+        }
+
+        # Lista todos os registros.
+        public function all() {
+
+            $sql = "select * from admin";
+            $sql = $this->con->prepare($sql);
+            $sql->execute();
+            return $sql->fetchAll();
 
         }
 
-        public function all() {
+        # Um registro especifico.
+        public function find() {
 
             $sql = "select * from admin";
             $sql = $this->con->prepare($sql);
