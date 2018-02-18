@@ -3,6 +3,7 @@
 namespace core;
 
 use app\classes\Uri;
+use app\classes\Bind;
 use app\exceptions\ControllerNotExistException;
 
     # Classe Coração do Controller.
@@ -57,10 +58,21 @@ use app\exceptions\ControllerNotExistException;
 
             $controller = $this->getControllerNotHome();
 
+            $option = Bind::get('config')->options['ShowPage404'];
+            
+            
             if (!$this->ControllerExist($controller)) {
 
-                throw new ControllerNotExistException("Este Controller não existe");
+                if($option == false) {
+    
+                    throw new ControllerNotExistException("Este Controller não existe");
+    
+                }
 
+                $this->namespace = 'app\controllers';
+                $this->controller = 'NotController';
+    
+                return $this->InstantiateController();
             }
 
             return $this->InstantiateController($controller);

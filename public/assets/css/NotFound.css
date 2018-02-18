@@ -1,0 +1,18 @@
+body {
+    background: #000;
+    color: #FFF;
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.not {
+    width: 100;
+    text-align: center;
+    font-size: 15vh;
+    margin-top: 38vh;
+}
+.not a{
+    color: #AAA;
+    line-height: 5vh;
+    font-size: 5vh;
+}

@@ -6,7 +6,7 @@ namespace app\controllers\portal;
 
         public function index () {
 
-
+            dd("Produto - Index");
 
         }
 

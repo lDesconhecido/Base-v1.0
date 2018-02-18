@@ -2,12 +2,21 @@
 
 namespace app\controllers\portal;
 
+use app\models\admin\Admin;
 use app\controllers\BaseController;
 
     class HomeController extends BaseController{
 
         public function index() {
-            dd('HOME - INDEX');
+
+            $user = new Admin;
+            $users = $user->all();
+
+            $this->view([
+                'title' => 'Home',
+                'users' => $users
+            ], 'portal.home');
+
         }
 
         public function show($request) {
