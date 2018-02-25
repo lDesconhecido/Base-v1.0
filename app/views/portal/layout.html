@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <title>{{ title }}</title>
+    <meta name="author" content="Mauricio Roberto">
+    <meta name="copyright" content="Copyright(c) 2018 Mr. Mauricio Roberto">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ title }}</title>
+    <!-- Css's -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- JavaScript's -->
+    <script src="../../assets/js/jQuery.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
+        <div class="btn-group">
+            <a class="btn btn-primary" href="{{ base }}">Home</a>
+            <a class="btn btn-primary" href="{{ base }}/user/cadastrar">Cadastrar</a>
+        </div>
         {% block portal %}{% endblock%}
     </div>
 </body>

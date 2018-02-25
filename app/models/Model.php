@@ -3,9 +3,12 @@
 namespace app\models;
 
 use app\classes\Bind;
+use app\traits\PersistDb;
 use app\models\Connection;
 
     abstract class Model {
+
+        use PersistDb;
 
         protected $con;
 
@@ -18,20 +21,32 @@ use app\models\Connection;
         # Lista todos os registros.
         public function all() {
 
-            $sql = "select * from admin";
+            $sql = "select * from {$this->table}";
             $sql = $this->con->prepare($sql);
             $sql->execute();
             return $sql->fetchAll();
 
         }
 
-        # Um registro especifico.
-        public function find() {
+        # Um registro específico.
+        public function find($field, $value) {
 
-            $sql = "select * from admin";
+            $sql = "select * from {$this->table} where {$field} = ?";
             $sql = $this->con->prepare($sql);
+            $sql->bindValue(1, $value);
             $sql->execute();
-            return $sql->fetchAll();
+            return $sql->fetch(); 
+
+        }
+
+        # Deleta um registro específico.
+        public function delete($field, $value) {
+
+            $sql = "delete from {$this->table} where {$field} = ?";
+            $sql = $this->con->prepare($sql);
+            $sql->bindValue(1, $value);
+            $sql->execute();
+            return $sql->rowCount();
 
         }
 

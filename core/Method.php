@@ -22,7 +22,13 @@ use app\exceptions\MethodNotExistException;
 
             $method = $this->getMethod();
 
-            if(!method_exists($controller, $method)) {
+            if (!method_exists($controller, $method)) {
+
+                if ($method == 'js' || $method == 'css') {
+                  
+                    exit;
+    
+                }
                 
                 throw new MethodNotExistException("Este Method não existe: {$method}");
                 

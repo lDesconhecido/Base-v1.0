@@ -14,8 +14,25 @@ use app\controllers\BaseController;
 
             $this->view([
                 'title' => 'Home',
+                'base' => MySite(),
                 'users' => $users
             ], 'portal.home');
+
+            if ($_POST) {
+
+                $name = filterPost('name');
+                $email = filterPost('email');
+                $pass = filterPost('pass');
+                $id = 4;
+
+                $user->update([
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => $pass,
+                    'id' => 4
+                ], ['id' => $id]);
+
+            }
 
         }
 

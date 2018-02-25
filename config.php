@@ -17,6 +17,6 @@
         ],
         "options" => [
             'ShowPage404' => true, // Mostra a pagina 404.
-            'MySite'=> 'http://www.minhabase.com.br/',
+            'MySite'=> 'http://www.minhabase.com.br',
         ],
     ];

@@ -20,7 +20,7 @@ namespace app\classes;
                 return (object) static::$bind[$name];
             }
 
-            throw new Exception("Este indice não existe no Bind: {$name}");
+            throw new \Exception("Este indice não existe no Bind: {$name}");
             
 
         }

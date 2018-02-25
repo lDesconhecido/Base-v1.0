@@ -31,7 +31,7 @@ use app\exceptions\ControllerNotExistException;
         # Verefica se é o HOME e carrega o controller.
         public function load() {
 
-            if($this->isHome()) {
+            if ($this->isHome()) {
 
                 return $this->ControllerHome();
 
@@ -43,7 +43,7 @@ use app\exceptions\ControllerNotExistException;
         # Verefica se existe o controller, pega erros caso tenha e seta ele.
         private function ControllerHome() {
             
-            if(!$this->ControllerExist('HomeController')) {
+            if (!$this->ControllerExist('HomeController')) {
 
                 throw new ControllerNotExistException("Este Controller não existe");
                 
