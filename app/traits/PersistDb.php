@@ -11,8 +11,13 @@ use app\models\querybuilder\Update;
 
             $attributes = (array) $attributes;
 
+            if (empty($attributes)) {
+                // echo "Atributos vazio";
+                exit;
+            }
+
             $sql = Insert::sql($this->table, $attributes);
-        
+
             $insert = $this->con->prepare($sql);
 
             return $insert->execute($attributes);

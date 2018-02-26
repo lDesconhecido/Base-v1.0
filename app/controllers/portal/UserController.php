@@ -2,8 +2,11 @@
 
 namespace app\controllers\portal;
 
+use app\models\admin\Post;
+use app\models\portal\User;
 use app\models\admin\Admin;
 use app\classes\Validation;
+use app\models\Transaction;
 use app\controllers\BaseController;
 
     class UserController extends BaseController{
@@ -36,24 +39,22 @@ use app\controllers\BaseController;
 
         public function cadastrar() {
 
-            $user =  new Admin;
+            $user =  new User;
+            $validation = new Validation;
 
             $this->view([
                 'base' => Mysite(),
                 'title' => 'Adicionar Usúario',
             ], 'portal.user-singup');
 
-            if ($_POST) {
 
-                $validation = new Validation;
+            if (!empty($_POST)) {
                 
                 $validado = $validation->validate($_POST);
 
                 $user->insert($validado);
-
-                Header('Location: '.MySite());
-
             }
+            
 
         }
 
