@@ -1,0 +1,23 @@
+{% extends 'admin/layout.html' %}{% block admin %} 
+    <form action="/AdminLogin/store" method="POST" class="form-horizontal" style="width:350px; margin:auto; text-align:center; border:1px solid #CCC; padding:20px; margin-top:50px; border-radius:5px;" role="form">
+        <div class="form-group">
+            <legend class="text-center">Login - Administração</legend>
+            <hr/>
+        </div>
+
+        <div class="form-group" style="margin:auto; box-sizing:border-box">
+            <input type="text" class="form-control" name="email" placeholder="E-mail">
+             {{ flash('email') | raw }}
+        </div>
+        <div class="form-group" style="margin:10px auto">
+            <input type="password" class="form-control" name="password" placeholder="Senha">
+             {{ flash('password') | raw }}
+        </div>
+
+        <div class="form-group"></div>
+            <button type="submit" style="width:100%; box-sizing:border-box" class="btn btn-success">Entrar</button>
+             {{ flash('login') | raw }}
+        </div>
+    </form>
+    
+{% endblock %}
