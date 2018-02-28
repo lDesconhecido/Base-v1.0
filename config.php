@@ -19,4 +19,12 @@
             'ShowPage404' => true, // Mostra a pagina 404.
             'MySite'=> 'http://www.minhabase.com.br',
         ],
+        "login" => [
+            'error' => 'Login e/ou senha errados.',
+        ],
+        "redirect" => [
+            'portal' => [
+                'notLoggedIn' => '/',
+            ],
+        ],
     ];

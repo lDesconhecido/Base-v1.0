@@ -14,28 +14,17 @@ use app\controllers\BaseController;
 
             $login = validate(Login::class);
 
-            // return toJson($login->getErrors());
-
-            // $sanitized = new Sanitize;
-            // return toJson(request('email'));
-            # toJson($login->getErrors());
-            
             if($login->hasErrors()) {
-                //toJson($login->getErrors());
+
                 flash($login->getErrors());
+                
                 return redirect('/admin/login');
                 
             }
+            
+            auth(new Admin);
 
-            $logado = auth(new Admin);
-
-            if ($logado) {
-
-                redirect('/painel');
-
-            }
-
-            return toJson($_SESSION);
+            redirect('/painel');
 
         }
 

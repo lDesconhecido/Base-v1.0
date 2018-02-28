@@ -8,6 +8,7 @@ use app\models\Model;
 
         protected $table = 'admin';
         public $session = 'admin_logado';
-        public $data = 'admin_data';
+        public $user_id = 'AdminID';
+        public $fillable = ['name', 'email', 'password'];
 
     }

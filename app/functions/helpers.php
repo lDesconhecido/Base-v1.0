@@ -7,6 +7,8 @@ use app\classes\Flash;
 use app\classes\Redirect;
 use app\validate\Validate;
 use app\validate\Sanitize;
+use app\models\admin\Admin;
+use app\models\portal\User;
 
     # Função DieDump  mostra varriavél e encerra o script.
     function dd($dump) {
@@ -46,11 +48,19 @@ use app\validate\Sanitize;
 
     }
 
-    function request($field) {
+    function request($field = null) {
 
         $sanitized = new Sanitize;
 
-        return $sanitized->sanitized()->$field;
+        
+        if (!is_null($field)) {
+
+            
+            return $sanitized->sanitized()->get()->$field;
+            
+        }
+        
+        return $sanitized->sanitized();
 
     }
 
@@ -72,6 +82,17 @@ use app\validate\Sanitize;
     }
     function flash($messages) {
 
-        return (new Flash)->add($messages);
+        return Flash::add($messages);
+
+    }
+
+    function guest() {
+
+        (new Login)->guest(new User);
+
+    }
+    function guestAdmin() {
+
+        (new Login)->guest(new Admin);
 
     }

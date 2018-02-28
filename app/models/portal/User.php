@@ -6,8 +6,16 @@ use app\models\Model;
 
     class User extends Model {
 
+        # Tabela que o model trabalha.
         protected $table = 'user';
+
+        # Tipo de User.
         public $session = 'user_logado';
-        public $data = 'user_data';
+
+        # Dados do usuario.
+        public $user_id = 'UserID';
+
+        # White List.
+        public $fillable = ['name', 'email', 'password'];
 
     }

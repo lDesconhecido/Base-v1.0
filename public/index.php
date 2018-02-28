@@ -23,8 +23,10 @@ use core\Parameters;
 
         $controller->$method($parameters);
 
-    } catch(\Exception $e) {
-
+    } catch(\Throwable $e) {
+        
+        # redirect('/erro');
+        # dd($e->getMessage() . ' No Arquivo: ' . $e->getFile() . ' Na Linha: ' .  $e->getLine());
         dd($e->getMessage());
 
     }
