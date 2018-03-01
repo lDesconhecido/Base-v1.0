@@ -9,6 +9,8 @@ use app\controllers\BaseController;
     class ProtegidoController extends BaseController {
 
         public function __construct() {
+            
+            // session_destroy();
 
             guest();
 
@@ -16,6 +18,9 @@ use app\controllers\BaseController;
 
         public function index() {
 
+            $this->view([
+                'title' => 'Protegido'
+            ], 'admin.home');
 
         }
 

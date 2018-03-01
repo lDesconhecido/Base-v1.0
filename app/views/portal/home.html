@@ -2,25 +2,8 @@
 
 {% block portal %}
 
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in users %}
-                <tr>
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td><a class="btn btn-danger" href="{{ base }}/user/editar/?id={{ user.id }}">Editar</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    
-
+        <div style="float:right; margin-top:15px;">
+            {% include "portal/includes/welcome.html" %}
+        </div>
+        <h1>Olá você está no Home</h1>
 {% endblock %}

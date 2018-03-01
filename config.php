@@ -25,6 +25,11 @@
         "redirect" => [
             'portal' => [
                 'notLoggedIn' => '/',
+                'logout' => '/',
+            ],
+            'admin' => [
+                'notLoggedIn' => '/admin',
+                'logout' => '/admin',
             ],
         ],
     ];

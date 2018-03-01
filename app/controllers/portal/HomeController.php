@@ -9,6 +9,8 @@ use app\controllers\BaseController;
 
         public function index() {
 
+            // session_destroy();
+
             $user = new Admin;
             $users = $user->all();
 

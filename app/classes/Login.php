@@ -2,6 +2,7 @@
 
 namespace app\classes;
 
+use core\Reflection;
 use app\models\Model;
 use app\classes\Config;
 use app\classes\Password;
@@ -57,13 +58,27 @@ use app\classes\Password;
 
         public function guest(Model $model) {
 
+            $config = Config::load('redirect');
+
+            $folder = (new Reflection($model))->getFolder();
+
             if (!isset($_SESSION[$model->session])) {
 
-                $config = Config::load('redirect');
-
-                return redirect($config->portal['notLoggedIn']);
+                return redirect($config->$folder['notLoggedIn']);
 
             }
+
+        }
+
+        public function logout(Model $model) {
+
+            session_destroy();
+
+            $config = Config::load('redirect');
+
+            $folder = (new Reflection($model))->getFolder();
+
+            return redirect($config->$folder['logout']);
 
         }
 

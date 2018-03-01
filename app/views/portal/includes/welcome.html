@@ -1,0 +1,10 @@
+{% if user() %} Bem Vindo {{ user().name }}
+        <a href="/login/destroy" class="btn btn-danger">
+            Sair
+        </a>
+{% else %}
+        Bem Vindo Visitante
+        <a href="/login" class="btn btn-primary">
+            Login
+        </a>
+{% endif %}

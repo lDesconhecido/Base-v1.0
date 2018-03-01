@@ -2,9 +2,10 @@
 
 namespace app\controllers\portal;
 
+use app\classes\Login;
 use app\models\portal\User;
-use app\validate\portal\Login;
 use app\controllers\BaseController;
+use app\validate\portal\Login as LoginVal;
 
     class LoginController extends BaseController{
 
@@ -18,7 +19,7 @@ use app\controllers\BaseController;
 
         public function store() {
 
-            $login = validate(Login::class);
+            $login = validate(LoginVal::class);
 
             if($login->hasErrors()) {
 
@@ -30,7 +31,15 @@ use app\controllers\BaseController;
             
             auth(new User);
 
-            redirect('/protegido');
+            redirect('/');
+
+        }
+
+        public function destroy() {
+
+            $login = new Login;
+
+            return  $login->logout(new User);
 
         }
 

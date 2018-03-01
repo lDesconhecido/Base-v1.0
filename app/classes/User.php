@@ -14,6 +14,8 @@ use app\models\Model;
 
             }
 
+            return false;
+
         }
 
     }
